@@ -10,6 +10,7 @@
     "@apollo/server": "^4.6.0",
     "better-sqlite3": "^8.3.0",
     "cors": "^2.8.5",
+    "dataloader": "^2.2.2",
     "express": "^4.18.2",
     "express-jwt": "^8.4.1",
     "graphql": "^16.6.0",
