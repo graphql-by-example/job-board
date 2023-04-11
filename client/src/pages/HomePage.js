@@ -2,7 +2,7 @@ import { useState } from 'react';
 import JobList from '../components/JobList';
 import { useJobs } from '../lib/graphql/hooks';
 
-const JOBS_PER_PAGE = 5;
+const JOBS_PER_PAGE = 20;
 
 function HomePage() {
   const [currentPage, setCurrentPage] = useState(1);
