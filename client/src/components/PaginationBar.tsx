@@ -1,4 +1,12 @@
-function PaginationBar({ currentPage, totalPages, onPageChange }) {
+import { MouseEventHandler } from 'react';
+
+interface PaginationBarProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+}
+
+function PaginationBar({ currentPage, totalPages, onPageChange }: PaginationBarProps) {
   const pages = getVisiblePages(currentPage, totalPages);
   return (
     <nav className="pagination is-centered" role="navigation" aria-label="pagination">
@@ -16,7 +24,7 @@ function PaginationBar({ currentPage, totalPages, onPageChange }) {
         {pages.map((page) => (
           <li key={page}>
             <PageButton page={page} currentPage={currentPage}
-              onClick={() => onPageChange(page)}
+              onClick={() => onPageChange(page as number)}
             />
           </li>
         ))}
@@ -25,7 +33,13 @@ function PaginationBar({ currentPage, totalPages, onPageChange }) {
   );
 }
 
-function PageButton({ page, currentPage, onClick }) {
+interface PageButtonProps {
+  page: number | string;
+  currentPage: number;
+  onClick: MouseEventHandler;
+}
+
+function PageButton({ page, currentPage, onClick }: PageButtonProps) {
   if (page === currentPage) {
     return (
       <button className="pagination-link is-current"
@@ -64,7 +78,7 @@ function PageButton({ page, currentPage, onClick }) {
  * getVisiblePages(5, 8) // => [1, '<', 4, 5, 6, 7, 8]
  * getVisiblePages(5, 10) // => [1, '<', 4, 5, 6, '>', 10]
  */
-function getVisiblePages(current, total) {
+function getVisiblePages(current: number, total: number) {
   if (total <= 7) {
     return range(total);
   }
@@ -77,7 +91,7 @@ function getVisiblePages(current, total) {
   return [1, '<', current - 1, current, current + 1, '>', total];
 }
 
-function range(count, start = 1) {
+function range(count: number, start = 1) {
   return Array.from(new Array(count), (x, i) => i + start);
 }
 

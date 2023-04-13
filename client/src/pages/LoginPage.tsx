@@ -1,12 +1,16 @@
-import { useState } from 'react';
-import { login } from '../lib/auth';
+import { FormEventHandler, useState } from 'react';
+import { User, login } from '../lib/auth';
 
-function LoginPage({ onLogin }) {
+interface LoginPageProps {
+  onLogin: (user: User) => void;
+}
+
+function LoginPage({ onLogin }: LoginPageProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
 
-  const handleSubmit = async (event) => {
+  const handleSubmit: FormEventHandler = async (event) => {
     event.preventDefault();
     setError(false);
     const user = await login(email, password);
