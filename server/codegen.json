@@ -8,6 +8,7 @@
         "typescript-resolvers"
       ],
       "config": {
+        "contextType": "../resolvers#ResolverContext",
         "mappers": {
           "Company": "../db/types#CompanyEntity",
           "Job": "../db/types#JobEntity"

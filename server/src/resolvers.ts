@@ -1,7 +1,14 @@
+import DataLoader from 'dataloader';
 import { GraphQLError } from 'graphql';
 import { getCompany } from './db/companies.js';
 import { countJobs, createJob, deleteJob, getJob, getJobs, getJobsByCompany, updateJob } from './db/jobs.js';
+import { CompanyEntity, UserEntity } from './db/types.js';
 import { Resolvers } from './generated/schema.js';
+
+export interface ResolverContext {
+  companyLoader: DataLoader<string, CompanyEntity, string>;
+  user?: UserEntity;
+}
 
 export const resolvers: Resolvers = {
   Query: {
