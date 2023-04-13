@@ -8,6 +8,9 @@
       "plugins": [],
       "config": {
         "skipTypename": true
+      },
+      "presetConfig": {
+        "fragmentMasking": false
       }
     }
   }
