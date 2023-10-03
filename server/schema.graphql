@@ -4,6 +4,7 @@ type Query {
 
 type Job {
   id: ID!
+  """The __date__ when the job was published, in ISO-8601 format. E.g. `2022-12-31`."""
   date: String!
   title: String!
   description: String
