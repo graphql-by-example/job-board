@@ -4,7 +4,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "nodemon server.js"
+    "build": "tsc",
+    "start": "nodemon src/server.ts"
   },
   "dependencies": {
     "@apollo/server": "^4.9.4",
@@ -19,9 +20,16 @@
     "nanoid": "^5.0.1"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "@tsconfig/node18": "^18.2.2",
+    "@types/cors": "^2.8.14",
+    "nodemon": "^3.0.1",
+    "tsx": "^4.6.2",
+    "typescript": "^5.2.2"
   },
   "nodemonConfig": {
-    "ext": "graphql,js"
+    "ext": "graphql,ts",
+    "execMap": {
+      "ts": "tsx"
+    }
   }
 }
