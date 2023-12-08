@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom';
-import { logout } from '../lib/auth';
+import { User, logout } from '../lib/auth';
 
-function NavBar({ user, onLogout }) {
+interface NavBarProps {
+  user: User | null;
+  onLogout: () => void;
+}
+
+function NavBar({ user, onLogout }: NavBarProps) {
   const handleLogout = () => {
     logout();
     onLogout();
