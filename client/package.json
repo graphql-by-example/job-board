@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "start": "vite",
+    "start": "concurrently \"vite\" \"graphql-codegen --config codegen.json --watch\"",
     "build": "tsc -b && vite build",
+    "codegen": "graphql-codegen --config codegen.json",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -21,9 +22,13 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/client-preset": "^4.1.0",
+    "@parcel/watcher": "^2.3.0",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
     "eslint": "^9.19.0",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.0.0",
