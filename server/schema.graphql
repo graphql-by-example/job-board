@@ -1,7 +1,7 @@
 type Query {
   company(id: ID!): Company
   job(id: ID!): Job
-  jobs: [Job!]
+  jobs(limit: Int): [Job!]
 }
 
 type Mutation {
