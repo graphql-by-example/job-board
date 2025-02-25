@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "bulma": "^1.0.3",
+    "graphql": "^16.10.0",
+    "graphql-request": "^7.1.2",
     "jwt-decode": "^4.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

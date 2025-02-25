@@ -1,5 +1,8 @@
 import JobList from '../components/JobList';
 import { jobs } from '../lib/fake-data';
+import { getJobs } from '../lib/graphql/queries';
+
+getJobs().then((jobs) => console.log('jobs:', jobs));
 
 function HomePage() {
   return (
