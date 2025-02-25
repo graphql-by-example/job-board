@@ -8,6 +8,10 @@
         "typescript-resolvers"
       ],
       "config": {
+        "mappers": {
+          "Company": "../db/types.js#CompanyEntity",
+          "Job": "../db/types.js#JobEntity"
+        },
         "skipTypename": true
       }
     }
