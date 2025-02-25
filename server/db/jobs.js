@@ -4,7 +4,7 @@ import { generateId } from './ids.js';
 const getJobTable = () => connection.table('job');
 
 export async function getJobs() {
-  return await getJobTable().select();
+  return await getJobTable().select().orderBy('createdAt', 'desc');
 }
 
 export async function getJobsByCompany(companyId) {
